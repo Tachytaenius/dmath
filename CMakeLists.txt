@@ -1,3 +1,5 @@
+# Modified from original to build a shared library instead of a static one.
+
 cmake_minimum_required(VERSION 3.10)
 
 project(dmath C)
@@ -96,7 +98,7 @@ list(REMOVE_ITEM MUSL_MATH_SRC "${MUSL_ROOT}/src/math/tanl.c")
 list(REMOVE_ITEM MUSL_MATH_SRC "${MUSL_ROOT}/src/math/tgammal.c")
 list(REMOVE_ITEM MUSL_MATH_SRC "${MUSL_ROOT}/src/math/truncl.c")
 
-add_library(${PROJECT_NAME} STATIC
+add_library(${PROJECT_NAME} SHARED
     ${MUSL_MATH_SRC}
 )
 
